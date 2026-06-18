@@ -1,2 +1,5 @@
-
+./Lib/
+./Scripts/
+./share/
+./etc/
 .env
