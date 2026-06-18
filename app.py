@@ -1,11 +1,18 @@
 from groq import Groq
 import os
 from dotenv import load_dotenv
+import time
 import streamlit as st
 load_dotenv()
 client  = Groq(api_key=os.getenv("GROQ_API_KEY"))
 st.header("Groq Bot")
-st.sidebar("Settings")
+with st.sidebar:
+    with st.echo():
+        st.write("This code will be printed to the sidebar.")
+
+    with st.spinner("Loading..."):
+        time.sleep(5)
+    st.success("Done!")
 if "messages" not in st.session_state:
     st.session_state.messages = [{
         "role" : "system",
